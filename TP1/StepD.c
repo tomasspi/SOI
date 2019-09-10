@@ -1,11 +1,4 @@
-#include "StepA.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <dirent.h>
-
-void file_descriptors(int pid);
-void limits(int pid);
-void stack(int pid);
+#include "StepD.h"
 
 /*
  * Muestra los permisos, el tipo de archivo y el path de los file

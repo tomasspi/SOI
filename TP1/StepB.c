@@ -1,6 +1,4 @@
-#include "StepA.h"
-
-void cputimes(void);
+#include "StepB.h"
 
 /*
  * Toma los tiempos (en Jiffies) de utilización del CPU, la cantidad de

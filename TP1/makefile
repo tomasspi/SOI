@@ -1,15 +1,27 @@
-# compilador
-CC = gcc
+# Compilador con sus flags
+CC=gcc
+CFLAGS= -Wall -pedantic -I$(IDIR)
 
-# flags para el compilador
-CFLAGS  = -Wall -pedantic
+# Directorios a utilizar
+IDIR =./include
+ODIR=obj
 
-# Output
-TARGET = rdproc
+# Dependencias
+_DEPS = StepA.h StepB.h StepC.h StepD.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-all: $(TARGET)
- $(TARGET): $(TARGET).c
-	 $(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
+# Objetos
+_OBJ = StepA.o StepB.o StepC.o StepD.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
+# Compila las dependencias
+$(ODIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+# Compila el programa principal
+rdproc: rdproc.c $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+# Elimina los objetos creados
 clean:
-	$(RM) $(TARGET)
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ rdproc

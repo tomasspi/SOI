@@ -1,6 +1,4 @@
-#include "StepA.h"
-
-void memstats(int a, int b);
+#include "StepC.h"
 
 /**
  * Muestra información sobre es estado del disco y la memoria dureante los
