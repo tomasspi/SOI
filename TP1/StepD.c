@@ -99,18 +99,27 @@ void stack(int pid)
   char stack[45];
   sprintf(stack,"sudo cat /proc/%d/stack",pid);
 
-  /* Con 'system' se pueden ejecutar comandos */
-  system(stack);
+  char linea[1000];
 
-  /*char linea[1000];
+  FILE *trace = popen(stack,"r");
 
-  FILE *trace = fopen(stack,"r");
-
-  if(trace == NULL) printf("No se pudo acceder al stack. ¿Es root?");
+  printf("%s\n", "Kernel Stack Trace:\n");
 
   while (fgets(linea, sizeof linea, trace) != NULL)
   {
-    printf("%s", linea);
+    /* Toma la primer línea, ignorando el primer string */
+    sscanf(linea,"%*s %s", linea);
+
+    /* Si hay un +, elimina desde esa posición hasta el final */
+    if(strchr(linea,'+'))
+    {
+      /* Guarda la posición para acordar el string */
+      int len = (int) (strchr(linea,'+')-linea);
+      memmove(linea,linea,len);
+      linea[len] = '\0';
+    }
+
+    printf("%s\n", linea);
   }
-  fclose(trace);*/
+  fclose(trace);
 }
