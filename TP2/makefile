@@ -3,25 +3,22 @@ CC=gcc
 CFLAGS= -Wall -pedantic -I$(IDIR)
 
 # Directorios a utilizar
-IDIR =./include
-ODIR=obj
-
-# Dependencias
-_DEPS = StepA.h StepB.h StepC.h StepD.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+IDIR =./inc
+ODIR =./obj
+SRC  =./src
 
 # Objetos
-_OBJ = StepA.o StepB.o StepC.o StepD.o
+_OBJ = built_ins.o segundo_plano.o IO_redirection.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # Compila las dependencias
-$(ODIR)/%.o: %.c $(DEPS)
+$(ODIR)/%.o: $(SRC)/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 # Compila el programa principal
-rdproc: rdproc.c $(OBJ)
+myshell: myshell.c $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 # Elimina los objetos creados
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ rdproc
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ myshell

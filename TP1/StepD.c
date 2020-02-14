@@ -23,7 +23,7 @@ void file_descriptors(int pid)
   /* Para cada entrada del directorio imprime lo pedido en el enunciado */
   while( (entry=readdir(descriptor)) )
   {
-    if(files >= 2) /* Las dos primeras son los directorios padre */
+    if(files >= 2) /* Las dos primeras son los directorios actual y padre */
     {
       /* Toma el file descriptor, genera los stats y el path */
       sprintf(linea,"/proc/%d/fd/%s",pid,entry->d_name);
@@ -113,7 +113,7 @@ void stack(int pid)
     /* Si hay un +, elimina desde esa posición hasta el final */
     if(strchr(linea,'+'))
     {
-      /* Guarda la posición para acordar el string */
+      /* Guarda la posición para acortar el string */
       int len = (int) (strchr(linea,'+')-linea);
       memmove(linea,linea,len);
       linea[len] = '\0';
