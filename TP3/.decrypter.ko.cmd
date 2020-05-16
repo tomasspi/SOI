@@ -1,1 +1,0 @@
-cmd_/mnt/disk/TP3/decrypter.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /mnt/disk/TP3/decrypter.ko /mnt/disk/TP3/decrypter.o /mnt/disk/TP3/decrypter.mod.o ;  true
