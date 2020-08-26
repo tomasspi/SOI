@@ -68,13 +68,13 @@ Se dividió el proyecto en la siguiente estructura:
 
 1. Ir al directorio donde se encuentra el proyecto, por ejemplo:
 
-```shell
+```zsh
  $ cd Documentos/myshell
 ```
 
 2. Compilarlo con el siguiente comando:
 
-```shell
+```zsh
   $ make
 ```
 
@@ -82,20 +82,20 @@ Se dividió el proyecto en la siguiente estructura:
 
   1. Ejecución manual:
 
-    ```shell
+    ```zsh
       $ ./myshell
     ```
     Esto mostrará un *prompt* con la ubicación del directorio actual junto con el nombre de usuario y máquina, esperando la introducción de comandos por parte del usuario.
 
   2. Ejecución automática a través de un **_batchfile_**:
 
-    ```shell
+    ```zsh
       $ ./myshell batchfile
     ```
     Ejecuta los comandos del arhivo *batchfile* y una vez que éste se termina, *myshell* termina su ejecución.
 
 4. Si se desea eliminar los archivos generados por el *makefile*, simplemente ingresar en consola:
 
-```shell
+```zsh
   $ make clean
 ```
