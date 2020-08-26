@@ -82,19 +82,19 @@ Se dividió el proyecto en la siguiente estructura:
 
   1. Ejecución manual:
 
-    ```zsh
-      $ ./myshell
-    ```
+   ```zsh
+     $ ./myshell
+   ```
     
-    Esto mostrará un *prompt* con la ubicación del directorio actual junto con el nombre de usuario y máquina, esperando la introducción de comandos por parte del usuario.
+   Esto mostrará un *prompt* con la ubicación del directorio actual junto con el nombre de usuario y máquina, esperando la introducción de comandos por parte del usuario.
 
   2. Ejecución automática a través de un **_batchfile_**:
 
-    ```zsh
-      $ ./myshell batchfile
-    ```
+  ```zsh
+    $ ./myshell batchfile
+  ```
     
-    Ejecuta los comandos del arhivo *batchfile* y una vez que éste se termina, *myshell* termina su ejecución.
+   Ejecuta los comandos del arhivo *batchfile* y una vez que éste se termina, *myshell* termina su ejecución.
 
 4. Si se desea eliminar los archivos generados por el *makefile*, simplemente ingresar en consola:
 
