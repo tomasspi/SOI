@@ -101,3 +101,5 @@ Se dividió el proyecto en la siguiente estructura:
 ```zsh
   $ make clean
 ```
+
+Código fuente basado en [lsh de Stephen Brennan](https://brennan.io/2015/01/16/write-a-shell-in-c/)
